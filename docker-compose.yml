@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  deno:
+    build:
+      context: ./deno
+    ports:
+      - 5000:5000
+    working_dir: /app
+    volumes:
+      - ./src/:/app
+    command: denon run --allow-net --allow-write --allow-read --allow-env --allow-plugin --unstable  server.ts
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_DATABASE: deno_survey
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data:/data/db
+volumes:
+  mongodb_data:
