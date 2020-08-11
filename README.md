@@ -3,9 +3,9 @@ This is Deno development evnvironment setup with docker for Mongodb.
 
 ## Prerequisites
 - Install docker and docker compose     
-    https://docs.docker.com/docker-for-windows/install/
-    https://docs.docker.com/docker-for-windows/install-windows-home/
-    https://docs.docker.com/engine/install/ubuntu/
+    https://docs.docker.com/docker-for-windows/install/     
+    https://docs.docker.com/docker-for-windows/install-windows-home/    
+    https://docs.docker.com/engine/install/ubuntu/      
 
 ## Procedures
 1. Clone this git repository
