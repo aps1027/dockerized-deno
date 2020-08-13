@@ -38,9 +38,7 @@ class AuthController {
 
       const payload: Payload = {
         iss: oldUser.email,
-        exp: setExpiration(
-          Date.now() + parseInt(Deno.env.get("JWT_EXP_DURATION") || "0"),
-        ),
+        exp: setExpiration(parseInt(Deno.env.get("JWT_EXP_DURATION") || "0")),
       };
       const jwt = await makeJwt({
         key: Deno.env.get("JWT_SECRET_KEY") || "",

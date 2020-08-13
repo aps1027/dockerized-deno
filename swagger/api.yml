@@ -1,0 +1,54 @@
+openapi: 3.0.2
+servers:
+  - url: http://localhost:5000
+info:
+  description: This is a sample deno API Server Based on the OpenAPI 3.0 specification.
+  version: 1.0.6-SNAPSHOT
+  title: Swagger Deno API Server - OpenAPI 3.0
+paths:
+  /api/login:
+    post:
+      description: Login to deno API Server
+      requestBody:
+        description: Login body
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: admin@gmail.com
+                password:
+                  type: string
+                  example: adminadmin
+      responses:
+        "200":
+          description: Successful Login
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 5f33f58700f18878000f3e5c
+                  name:
+                    type: string
+                    example: admin
+                  email:
+                    type: string
+                    example: admin@gmail.com
+                  jwt:
+                    type: string
+                    example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc
+        "422":
+          description: Fail Login
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Please provide email and password
